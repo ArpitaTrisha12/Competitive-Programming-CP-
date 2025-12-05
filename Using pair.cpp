@@ -1,0 +1,31 @@
+/*Sort students primarily by marks (descending). If marks tie, sort by name alphabetically.
+Input-n
+name1 mark1
+name2 mark2
+Output- Print students as: name mark*/
+#include<bits/stdc++.h>
+using namespace std;
+bool cmp(pair<string,int>a,pair<string,int>b){
+if(a.second!=b.second){
+return a.second>b.second;
+}
+else{
+return a.first<b.first;
+}
+}
+int main(){
+int n;
+cin>>n;
+vector<pair<string,int>>v;
+for(int i=0;i<n;i++){
+string name;
+int mark;
+cin>>name>>mark;
+v.push_back({name,mark});
+}
+sort(v.begin(),v.end(),cmp);
+for(int i=0;i<v.size();i++){
+cout<<v[i].first<<" "<<v[i].second<<endl;
+}
+return 0;
+}
